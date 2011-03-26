@@ -1,0 +1,5 @@
+<j:jelly xmlns:j="jelly:core" xmlns:d="jelly:define" xmlns:st="jelly:stapler">
+  <th>
+${%Number of builds}
+  </th>
+</j:jelly>

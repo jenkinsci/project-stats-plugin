@@ -1,0 +1,11 @@
+<j:jelly xmlns:j="jelly:core" xmlns:d="jelly:define" xmlns:st="jelly:stapler">
+  <j:set var="res" value="${it.getStats(job)}" />
+  <td>
+    <img src="${imagesURL}/${iconSize}/blue.png" class="icon${iconSize}" />
+      ${res.getSuccess()}
+    <img src="${imagesURL}/${iconSize}/yellow.png" class="icon${iconSize}" />
+      ${res.getUnstable()}
+    <img src="${imagesURL}/${iconSize}/red.png" class="icon${iconSize}" />
+      ${res.getFail()}
+  </td>
+</j:jelly>
