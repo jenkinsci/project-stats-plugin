@@ -23,7 +23,8 @@ THE SOFTWARE.
 -->
 
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" 
-	    xmlns:l="/lib/layout" xmlns:t="/lib/hudson">
+	    xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
+      xmlns:dp="/hudson/plugins/view/dashboard">
 	  <j:set var="iconSize" value="16x16" />
     <table id="statistics" class="sortable pane bigtable"
 				style="margin-top: 0px;">
@@ -42,7 +43,7 @@ THE SOFTWARE.
 			<j:forEach var="job" items="${jobs}">
         <j:set var="res" value="${it.getStats(job)}" />
 			  <tr>
-				  <td>${job.getDisplayName()}</td>
+				  <td><dp:jobLink job="${job}" /></td>
 					<td>${res.getSuccess()}</td>
 					<td>${res.getUnstable()}</td>
           <td>${res.getFail()}</td>
