@@ -28,7 +28,6 @@ import hudson.Extension;
 import hudson.model.Descriptor;
 import hudson.model.Job;
 import hudson.plugins.projectstats.NumBuildsStats;
-import hudson.plugins.projectstats.NumBuildsStatsBuilder;
 import hudson.plugins.view.dashboard.DashboardPortlet;
 import java.util.ResourceBundle;
 import org.kohsuke.stapler.DataBoundConstructor;
@@ -46,8 +45,9 @@ public class NumBuildsPortlet extends DashboardPortlet {
 	}
 
   public NumBuildsStats getStats(Job job) {
-    NumBuildsStatsBuilder builder = new NumBuildsStatsBuilder(job);
-    return builder.getNumBuildStats();
+    NumBuildsStats stats = new NumBuildsStats();
+    stats.compute(job);
+    return stats;
   }
 
   @Extension

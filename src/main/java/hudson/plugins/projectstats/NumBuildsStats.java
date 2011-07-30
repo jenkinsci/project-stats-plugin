@@ -24,11 +24,16 @@
 
 package hudson.plugins.projectstats;
 
+import hudson.model.Job;
+import hudson.model.Result;
+import hudson.model.Run;
+import java.util.List;
+
 /**
  *
  * @author Marco Ambu
  */
-public class NumBuildsStats {
+public class NumBuildsStats implements Stats {
 
   int success;
   int unstable;
@@ -38,6 +43,18 @@ public class NumBuildsStats {
     this.success = 0;
     this.unstable = 0;
     this.fail = 0;
+  }
+
+  public void compute(Job job) {
+    List<Run> builds = job.getBuilds();
+    for (Run build : builds) {
+      if (build.getResult().isBetterOrEqualTo(Result.SUCCESS))
+        addSuccess();
+      else if (build.getResult().isBetterOrEqualTo(Result.UNSTABLE))
+        addUnstable();
+      else if (build.getResult().isBetterOrEqualTo(Result.FAILURE))
+        addFail();
+    }
   }
 
   public void addSuccess() {

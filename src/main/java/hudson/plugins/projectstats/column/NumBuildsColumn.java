@@ -28,7 +28,6 @@ import hudson.Extension;
 import hudson.model.Descriptor;
 import hudson.model.Job;
 import hudson.plugins.projectstats.NumBuildsStats;
-import hudson.plugins.projectstats.NumBuildsStatsBuilder;
 import hudson.views.ListViewColumn;
 import java.util.ResourceBundle;
 import net.sf.json.JSONObject;
@@ -50,8 +49,9 @@ public class NumBuildsColumn extends ListViewColumn {
   private static final ResourceBundle numbuildscolumn = ResourceBundle.getBundle("hudson/plugins/projectstats/column/NumBuildsColumn/numbuildscolumn");
 
     public NumBuildsStats getStats(Job job) {
-        NumBuildsStatsBuilder builder = new NumBuildsStatsBuilder(job);
-        return builder.getNumBuildStats();
+        NumBuildsStats stats = new NumBuildsStats();
+        stats.compute(job);
+        return stats;
     }
 
     private static class DescriptorImpl extends Descriptor<ListViewColumn> {

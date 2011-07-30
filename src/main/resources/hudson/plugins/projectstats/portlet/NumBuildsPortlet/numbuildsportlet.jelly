@@ -49,11 +49,5 @@ THE SOFTWARE.
           <td>${res.getFail()}</td>
 				</tr>
 			</j:forEach>
-<!--				<tr>
-					<td><b>${%Total builds}</b></td>
-					<td></td>
-					<td></td>
-          <td></td>
-				</tr>-->
 		</table>
 </j:jelly>
