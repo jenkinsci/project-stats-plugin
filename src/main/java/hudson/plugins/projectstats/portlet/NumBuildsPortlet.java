@@ -29,6 +29,7 @@ import hudson.model.Descriptor;
 import hudson.model.Job;
 import hudson.plugins.projectstats.NumBuildsStats;
 import hudson.plugins.view.dashboard.DashboardPortlet;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -48,6 +49,16 @@ public class NumBuildsPortlet extends DashboardPortlet {
     NumBuildsStats stats = new NumBuildsStats();
     stats.compute(job);
     return stats;
+  }
+
+  public String formatPct(DecimalFormat df, double val) {
+    if (val < 1d && val > .99d) {
+      return "<100%";
+    } else if (val > 0d && val < .01d) {
+      return ">0%";
+    } else {
+      return df.format(val);
+    }
   }
 
   @Extension

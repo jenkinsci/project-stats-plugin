@@ -25,6 +25,9 @@ THE SOFTWARE.
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" 
 	    xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
       xmlns:dp="/hudson/plugins/view/dashboard">
+    <j:new className="java.text.DecimalFormat" var="format">
+      <j:arg type="java.lang.String" value="0%" />
+    </j:new>
 	  <j:set var="iconSize" value="16x16" />
     <table id="statistics" class="sortable pane bigtable"
 				style="margin-top: 0px;">
@@ -44,9 +47,9 @@ THE SOFTWARE.
         <j:set var="res" value="${it.getStats(job)}" />
 			  <tr>
 				  <td><dp:jobLink job="${job}" /></td>
-					<td>${res.getSuccess()}</td>
-					<td>${res.getUnstable()}</td>
-          <td>${res.getFail()}</td>
+					<td>${res.success} (${it.formatPct(format, res.successPct)})</td>
+					<td>${res.unstable} (${it.formatPct(format, res.unstablePct)})</td>
+          <td>${res.fail} (${it.formatPct(format, res.failPct)})</td>
 				</tr>
 			</j:forEach>
 		</table>

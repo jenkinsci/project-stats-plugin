@@ -81,4 +81,19 @@ public class NumBuildsStats implements Stats {
     return fail;
   }
 
+  public double getSuccessPct() {
+    int total = success + unstable + fail;
+    return total != 0 ? ( (double) success / total) : 0d;
+  }
+
+  public double getUnstablePct() {
+    int total = success + unstable + fail;
+    return total != 0 ? ( (double) unstable / total) : 0d;
+  }
+
+  public double getFailPct() {
+    int total = success + unstable + fail;
+    return total != 0 ? ( (double) fail / total) : 0d;
+  }
+
 }
