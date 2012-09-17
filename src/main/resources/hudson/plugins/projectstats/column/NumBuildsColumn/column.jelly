@@ -1,11 +1,17 @@
 <j:jelly xmlns:j="jelly:core" xmlns:d="jelly:define" xmlns:st="jelly:stapler">
   <j:set var="res" value="${it.getStats(job)}" />
   <td>
-    <img src="${imagesURL}/${iconSize}/blue.png" class="icon${iconSize}" />
-      ${res.getSuccess()}
-    <img src="${imagesURL}/${iconSize}/yellow.png" class="icon${iconSize}" />
-      ${res.getUnstable()}
-    <img src="${imagesURL}/${iconSize}/red.png" class="icon${iconSize}" />
-      ${res.getFail()}
+    <span class="status_success">
+      <img src="${imagesURL}/${iconSize}/blue.png" class="icon${iconSize}" />
+      <span class="label">${res.getSuccess()}</span>
+    </span>
+    <span class="status_unstable">
+      <img src="${imagesURL}/${iconSize}/yellow.png" class="icon${iconSize}" />
+      <span class="label">${res.getUnstable()}</span>
+    </span>
+    <span class="status_failed">
+      <img src="${imagesURL}/${iconSize}/red.png" class="icon${iconSize}" />
+      <span class="label">${res.getFail()}</span>
+    </span>
   </td>
 </j:jelly>
