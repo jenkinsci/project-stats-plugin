@@ -48,14 +48,18 @@ public class NumBuildsStats implements Stats {
   public void compute(Job job) {
     List<Run> builds = job.getBuilds();
     for (Run build : builds) {
-      if (build.getResult().isBetterOrEqualTo(Result.SUCCESS))
-        addSuccess();
-      else if (build.getResult().isBetterOrEqualTo(Result.UNSTABLE))
-        addUnstable();
-      else if (build.getResult().isBetterOrEqualTo(Result.FAILURE))
-        addFail();
+      // a build result can be null if the build is currently building (JENKINS-15067)
+      if(build.getResult() != null) {
+    	  if (build.getResult().isBetterOrEqualTo(Result.SUCCESS))
+    		  addSuccess();
+    	  else if (build.getResult().isBetterOrEqualTo(Result.UNSTABLE))
+    		  addUnstable();
+    	  else if (build.getResult().isBetterOrEqualTo(Result.FAILURE))
+    		  addFail();  
+      }
     }
   }
+
 
   public void addSuccess() {
     success++;
