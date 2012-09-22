@@ -9,7 +9,7 @@
   <artifactId>project-stats-plugin</artifactId>
   <packaging>hpi</packaging>
   <name>Project statistics Plugin</name>
-  <version>0.4</version>
+  <version>0.5-SNAPSHOT</version>
   <description>Provide a new dashboard-view portlet and a new column for project statistics.</description>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Project+Statistics+Plugin</url>
 
