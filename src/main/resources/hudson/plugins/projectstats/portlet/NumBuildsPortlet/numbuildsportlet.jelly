@@ -21,10 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
-
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" 
-	    xmlns:l="/lib/layout" xmlns:t="/lib/hudson"
-      xmlns:dp="/hudson/plugins/view/dashboard">
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:dp="/hudson/plugins/view/dashboard">
     <j:new className="java.text.DecimalFormat" var="format">
       <j:arg type="java.lang.String" value="0%" />
     </j:new>

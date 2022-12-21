@@ -4,36 +4,21 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.459</version>
+    <version>4.53</version>
+    <relativePath />
   </parent>
   <artifactId>project-stats-plugin</artifactId>
   <packaging>hpi</packaging>
   <name>Project statistics Plugin</name>
-  <version>0.5-SNAPSHOT</version>
-  <description>Provide a new dashboard-view portlet and a new column for project statistics.</description>
+  <version>${changelist}</version>
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Project+Statistics+Plugin</url>
 
-  <distributionManagement>
-    <repository>
-      <id>maven.jenkins-ci.org</id>
-      <url>http://maven.jenkins-ci.org:8081/content/repositories/releases/</url>
-    </repository>
-  </distributionManagement>
-
   <scm>
-   <connection>scm:git:git://github.com/jenkinsci/project-stats-plugin.git</connection>
+   <connection>scm:git:https://github.com/jenkinsci/project-stats-plugin.git</connection>
    <developerConnection>scm:git:git@github.com:jenkinsci/project-stats-plugin.git</developerConnection>
    <url>https://github.com/jenkinsci/project-stats-plugin</url>
+    <tag>${scmTag}</tag>
   </scm>
-
-  <developers>
-    <developer>
-      <id>mambu</id>
-      <name>Marco Ambu</name>
-      <email>marco.ambu+jenkins@gmail.com</email>
-      <timezone>0</timezone>
-    </developer>
-  </developers>
 
   <dependencies>
     <dependency>
@@ -47,16 +32,23 @@
   <repositories>
     <repository>
       <id>repo.jenkins-ci.org</id>
-      <url>http://repo.jenkins-ci.org/public/</url>
+      <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
-
 
     <pluginRepositories>
         <pluginRepository>
             <id>repo.jenkins-ci.org</id>
-            <url>http://repo.jenkins-ci.org/public/</url>
+            <url>https://repo.jenkins-ci.org/public/</url>
         </pluginRepository>
     </pluginRepositories>
+
+  <properties>
+    <changelist>999999-SNAPSHOT</changelist>
+    <jenkins.version>2.361.4</jenkins.version>
+    <!-- TODO fix violations -->
+    <spotbugs.threshold>High</spotbugs.threshold>
+  </properties>
+
 </project>  
 
