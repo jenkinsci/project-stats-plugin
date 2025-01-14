@@ -43,7 +43,9 @@
 
   <properties>
     <changelist>999999-SNAPSHOT</changelist>
-    <jenkins.version>2.401.3</jenkins.version>
+    <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
+    <jenkins.baseline>2.401</jenkins.baseline>
+    <jenkins.version>${jenkins.baseline}.3</jenkins.version>
     <!-- TODO fix violations -->
     <spotbugs.threshold>High</spotbugs.threshold>
   </properties>
@@ -52,7 +54,7 @@
     <dependencies>
       <dependency>
         <groupId>io.jenkins.tools.bom</groupId>
-        <artifactId>bom-2.401.x</artifactId>
+        <artifactId>bom-${jenkins.baseline}.x</artifactId>
         <version>2612.v3d6a_2128c0ef</version>
         <scope>import</scope>
         <type>pom</type>
